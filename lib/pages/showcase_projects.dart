@@ -12,10 +12,23 @@ class _ShowcaseProjectsState extends State<ShowcaseProjects> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Projects"),
+        elevation: 8.0,
       ),
      body: Material(
-       child: Column(
+       child: ListView(
          children: <Widget>[
+           ProjectDisplayCard(
+
+           ),
+           ProjectDisplayCard(
+
+           ),
+           ProjectDisplayCard(
+
+           ),
+           ProjectDisplayCard(
+
+           ),
            ProjectDisplayCard(
 
            )

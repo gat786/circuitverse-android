@@ -1,4 +1,9 @@
+import 'dart:async';
+
+import 'package:circuitverse/pages/detailed_project.dart';
 import 'package:circuitverse/pages/showcase_projects.dart';
+import 'package:circuitverse/themes/darttheme.dart';
+import 'package:circuitverse/themes/lighttheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -8,25 +13,35 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/': (context) => HomePage(),
+        '/listings': (context) => ShowcaseProjects(),
+        '/detailed':(context) => DetailedProject(),
+      },
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: ShowcaseProjects()
+      theme: darkTheme,
     );
   }
 }
 
 class HomePage extends StatefulWidget {
-  String title;
-  HomePage({this.title});
 
+  setTimeOut(context){
+    Timer(Duration(seconds: 3), (){
+      print("Timer Function Called");
+      Navigator.of(context).pushNamed('/listings').then((value){
+        Navigator.of(context).pop();
+      });
+    });
+  }
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -49,4 +64,8 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+
+
+
 }
